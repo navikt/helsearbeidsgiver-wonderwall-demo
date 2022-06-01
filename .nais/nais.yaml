@@ -1,36 +1,33 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: "helsearbeidsgiver-wonderwall-demo"
-  namespace: "helsearbeidsgiver"
+  name: helsearbeidsgiver-wonderwall-demo
+  namespace: helsearbeidsgiver
   labels:
-    team: "helsearbeidsgiver"
+    team: helsearbeidsgiver
 spec:
   image: {{image}}
   liveness:
-    path: "/api/isalive"
-    port: 8080
+    path: /api/isalive
+    port: 3000
     initialDelay: 20
     timeout: 60
   readiness:
-    path: "/api/isready"
-    port: 8080
+    path: /api/isready
+    port: 3000
     initialDelay: 20
     timeout: 60
   replicas:
-    min: 2
-    max: 2
+    min: 1
+    max: 1
     cpuThresholdPercentage: 50
-  prometheus:
-    enabled: true
-    path: "/metrics"
   resources:
     limits:
-      cpu: "200m"
-      memory: "256Mi"
+      cpu: 200m
+      memory: 256Mi
     requests:
-      cpu: "200"
-      memory: "256Mi"
+      cpu: 200m
+      memory: 256Mi
   ingresses: 
   {{#each ingresses as |url|}}
     - {{url}}
