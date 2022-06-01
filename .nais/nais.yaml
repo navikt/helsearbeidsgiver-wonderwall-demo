@@ -1,12 +1,10 @@
-.nais/nais.yaml:
--------------------------
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: "helsearbeidsgiver-wonderwall-demo"
   namespace: "helsearbeidsgiver"
   labels:
-    "team": "helsearbeidsgiver"
+    team: "helsearbeidsgiver"
 spec:
   image: {{image}}
   liveness:
