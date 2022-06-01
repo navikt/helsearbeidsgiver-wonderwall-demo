@@ -35,5 +35,5 @@ spec:
     sidecar:
       enabled: true
       autoLogin: true
-      level: Level4
+      level: Level3
       locale: nb
