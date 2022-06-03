@@ -5,6 +5,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const headers = req.headers
+  const { headers } = req
   res.status(200).json({ headers })
 }
